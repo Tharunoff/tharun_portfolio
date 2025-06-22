@@ -9,7 +9,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Projectarchive from "./components/Projectarchive";
-import Certificates from "./components/Certificates"; // 👈 NEW IMPORT
+import Certificates from "./components/Certificates"; 
 
 // Homepage layout
 const HomePage = () => (
@@ -32,7 +32,7 @@ function App() {
   return (
     <Router>
       <div className="relative bg-[#0a192f] text-white overflow-x-hidden min-h-screen">
-        {/* 🔆 Spotlight background on all routes */}
+        {/* Spotlight background  */}
         <div className="fixed inset-0 z-0 pointer-events-none">
           <Spotlight />
         </div>
@@ -40,7 +40,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/archive" element={<Projectarchive />} />
-          <Route path="/certificates" element={<Certificates />} /> {/* 👈 NEW ROUTE */}
+          <Route path="/certificates" element={<Certificates />} /> {/*NEW ROUTE */}
         </Routes>
       </div>
     </Router>
