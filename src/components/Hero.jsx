@@ -3,8 +3,10 @@ import profilePic from "./profile.png";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen px-6 sm:px-8 md:px-32 pt-20 pb-32 bg-[#0a192f]/60 backdrop-blur-sm text-[#ccd6f6] flex flex-col justify-between">
-
+    <section
+    id="home"
+    className="relative min-h-screen px-6 sm:px-8 md:px-32 pt-20 pb-32 bg-[#0a192f]/60 backdrop-blur-sm text-[#ccd6f6] flex flex-col justify-between"
+  >
       {/* Content Container */}
       <div className="flex flex-col-reverse md:flex-row items-center justify-center gap-12 md:gap-20 flex-1">
         

@@ -1,7 +1,31 @@
+import { useRef } from "react";
 import { motion } from "framer-motion";
 import { FaPhone, FaEnvelope, FaLinkedin } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        'service_miujjhh',     
+        'template_7bntqhv',    
+        form.current,
+        'CK9EzaJnU4OBGiVti'     
+      )
+      .then(() => {
+        alert("✅ Message sent!");
+        e.target.reset();
+      })
+      .catch((error) => {
+        console.error("❌ Error sending message:", error);
+        alert("❌ Something went wrong. Please try again later.");
+      });
+  };
+
   return (
     <section
       id="contact"
@@ -60,6 +84,8 @@ const Contact = () => {
 
         {/* Right Column: Message Form */}
         <motion.form
+          ref={form}
+          onSubmit={sendEmail}
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -69,16 +95,22 @@ const Contact = () => {
           <h3 className="text-2xl font-semibold mb-4">Send a Message</h3>
           <input
             type="text"
+            name="user_name"
             placeholder="Your Name"
+            required
             className="w-full px-4 py-2 bg-[#0a192f]/50 border border-[#64ffda]/20 rounded text-white focus:outline-none focus:ring-2 focus:ring-[#64ffda]"
           />
           <input
             type="email"
+            name="user_email"
             placeholder="Your Email"
+            required
             className="w-full px-4 py-2 bg-[#0a192f]/50 border border-[#64ffda]/20 rounded text-white focus:outline-none focus:ring-2 focus:ring-[#64ffda]"
           />
           <textarea
+            name="message"
             placeholder="Your Message"
+            required
             rows="5"
             className="w-full px-4 py-2 bg-[#0a192f]/50 border border-[#64ffda]/20 rounded text-white focus:outline-none focus:ring-2 focus:ring-[#64ffda] resize-none"
           ></textarea>
